@@ -6,7 +6,7 @@ import java.util.*;
 
 public class ChatServer {
     private static Set<Socket> clientes = new HashSet<>();
-    private static final int PORTA = 12345;
+    private static final int PORTA = 20054;
 
     public static void main(String[] args) throws IOException {
         try (ServerSocket servidor = new ServerSocket(PORTA)) {

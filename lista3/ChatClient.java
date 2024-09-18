@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ChatClient {
     private static final String HOST = "localhost";
-    private static final int PORTA = 12345;
+    private static final int PORTA = 20054;
 
     public static void main(String[] args) {
         try (Socket socket = new Socket(HOST, PORTA);
