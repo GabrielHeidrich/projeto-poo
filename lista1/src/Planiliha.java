@@ -9,19 +9,17 @@ public class Planiliha {
         Scanner scanner = new Scanner(System.in);
         List<String[]> linhas = new ArrayList<>();
 
-        // Receber o número de colunas e nomes das colunas
         System.out.print("Digite o número de colunas: ");
         int numeroDeColunas = scanner.nextInt();
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine(); 
 
         String[] colunas = new String[numeroDeColunas];
         for (int i = 0; i < numeroDeColunas; i++) {
             System.out.print("Digite o nome da coluna " + (i + 1) + ": ");
             colunas[i] = scanner.nextLine();
         }
-        linhas.add(colunas); // Adicionar os títulos das colunas à primeira linha
+        linhas.add(colunas); 
 
-        // Receber as linhas de dados
         boolean continuar = true;
         while (continuar) {
             String[] dados = new String[numeroDeColunas];
@@ -29,17 +27,15 @@ public class Planiliha {
                 System.out.print("Digite o dado para a coluna '" + colunas[i] + "': ");
                 dados[i] = scanner.nextLine();
             }
-            linhas.add(dados); // Adicionar a linha de dados
+            linhas.add(dados); 
 
             System.out.print("Deseja inserir mais uma linha de dados? (s/n): ");
             continuar = scanner.nextLine().equalsIgnoreCase("s");
         }
 
-        // Nome do arquivo CSV
         System.out.print("Digite o nome do arquivo CSV (sem extensão): ");
         String nomeArquivo = scanner.nextLine() + ".csv";
 
-        // Criar o arquivo CSV
         try (FileWriter writer = new FileWriter(nomeArquivo)) {
             for (String[] linha : linhas) {
                 writer.write(String.join(",", linha) + "\n");
